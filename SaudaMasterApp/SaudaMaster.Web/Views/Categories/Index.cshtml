@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SaudaMaster.Data.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDisplayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Store.StoreName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryDisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Store.StoreName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+        </td>
+    </tr>
+}
+
+</table>
