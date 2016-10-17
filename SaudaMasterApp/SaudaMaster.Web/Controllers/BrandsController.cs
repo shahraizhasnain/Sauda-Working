@@ -5,9 +5,11 @@ using SaudaMaster.SharedModel;
 using SaudaMaster.Services;
 using System.Web;
 using System.IO;
+using System.Web.Http.Cors;
 
 namespace SaudaMaster.Web.Controllers
 {
+    [EnableCors(origins: "http://localhost:8100/", headers: "*", methods: "*")]
     public class BrandsController : Controller
     {
         private IBrandService brandServices;
@@ -17,7 +19,7 @@ namespace SaudaMaster.Web.Controllers
         {
 
         }
-
+		
         public BrandsController(IBrandService brandService)
         {
             this.brandServices = brandService;

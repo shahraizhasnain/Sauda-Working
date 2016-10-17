@@ -14,6 +14,8 @@ namespace SaudaMaster.Web
         {
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
+            config.EnableCors();
+
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
